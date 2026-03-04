@@ -1,0 +1,29 @@
+{
+  "expo": {
+    "name": "مسجد الهدى",
+    "slug": "vite_react_shadcn_ts",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./public/favicon.ico",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "image": "./public/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#1E5631"
+    },
+    "android": {
+      "package": "com.example.masjidalhoda",
+      "versionCode": 1,
+      "adaptiveIcon": {
+        "foregroundImage": "./public/favicon.ico",
+        "backgroundColor": "#1E5631"
+      }
+    },
+    "plugins": [],
+    "extra": {
+      "eas": {
+        "projectId": "72b29172-1264-47ae-964c-85005fe38893"
+      }
+    }
+  }
+}

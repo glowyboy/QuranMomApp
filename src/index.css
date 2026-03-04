@@ -1,0 +1,134 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 60 33% 98%;
+    --foreground: 142 70% 10%;
+
+    --card: 60 33% 98%;
+    --card-foreground: 142 70% 10%;
+
+    --popover: 60 33% 98%;
+    --popover-foreground: 142 70% 10%;
+
+    --primary: 142 48% 23%;
+    --primary-foreground: 60 33% 96%;
+
+    --secondary: 44 57% 52%;
+    --secondary-foreground: 142 70% 10%;
+
+    --muted: 60 33% 90%;
+    --muted-foreground: 142 10% 40%;
+
+    --accent: 44 57% 52%;
+    --accent-foreground: 142 70% 10%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 60 33% 96%;
+
+    --border: 142 20% 80%;
+    --input: 142 20% 80%;
+    --ring: 142 48% 23%;
+
+    --radius: 0.75rem;
+    
+    /* Islamic theme colors - Default Theme */
+    --islamic-green: #1E5631;
+    --islamic-gold: #D4AF37;
+    --islamic-beige: #F5F5DC;
+    --islamic-light: #FAF9F6; 
+    --islamic-dark: #0C3A2D;
+  }
+
+  body.dark-green-theme {
+    --islamic-green: #0C3A2D;
+    --islamic-gold: #C19B3C;
+    --islamic-beige: #102020;
+    --islamic-light: #1A3030;
+    background-image: url('/islamic-pattern-light.png');
+    background-blend-mode: soft-light;
+    background-color: var(--islamic-beige);
+  }
+
+  body.light-green-theme {
+    --islamic-green: #4B7F52;
+    --islamic-gold: #E9CD6C;
+    --islamic-beige: #F8FBEF;
+    --islamic-light: #FFFFFF;
+    background-image: url('/islamic-pattern-light.png');
+    background-blend-mode: soft-light;
+    background-color: var(--islamic-beige);
+  }
+
+  body.brown-orange-theme {
+    --islamic-green: #8D5524;
+    --islamic-gold: #FFB347;
+    --islamic-beige: #FFF3E0;
+    --islamic-light: #FFF8F0;
+    --islamic-dark: #4E2E0E;
+    background-image: url('/islamic-pattern-light.png');
+    background-blend-mode: soft-light;
+    background-color: var(--islamic-beige);
+  }
+
+  body.font-white {
+    color: #fff !important;
+  }
+  body.font-black {
+    color: #000 !important;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    @apply font-arabic;
+  }
+
+  body {
+    @apply bg-islamic-beige text-islamic-dark font-arabic antialiased;
+    background-image: url('/islamic-pattern-light.png');
+    background-repeat: repeat;
+    background-size: 300px;
+    background-blend-mode: soft-light;
+  }
+}
+
+@layer components {
+  .islamic-card {
+    @apply bg-islamic-light/80 border border-islamic-gold/40 rounded-xl px-4 py-5 shadow-md backdrop-blur-sm;
+  }
+  
+  .islamic-pattern-border {
+    @apply relative;
+  }
+  
+  .islamic-pattern-border::before {
+    content: '';
+    @apply absolute top-0 left-0 right-0 h-4 bg-islamic-gold/20 rounded-t-xl;
+    background-image: url('/islamic-border-pattern.png');
+    background-size: auto 100%;
+    background-repeat: repeat-x;
+  }
+  
+  .nav-item {
+    @apply flex flex-col items-center justify-center px-2 py-1;
+  }
+  
+  .nav-item.active {
+    @apply text-islamic-gold;
+  }
+  
+  .arabic-text {
+    @apply font-arabic text-right;
+  }
+  
+  .islamic-button {
+    @apply bg-islamic-green text-islamic-light rounded-full px-6 py-2 flex items-center justify-center shadow-md hover:bg-islamic-dark transition-colors;
+  }
+}

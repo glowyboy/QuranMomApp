@@ -1,0 +1,46 @@
+# Dependencies
+node_modules/
+.npm/
+.yarn/
+
+# Build outputs
+dist/
+build/
+.vite/
+.cache/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Testing
+coverage/
+.nyc_output/
+
+# Misc
+.env.local
+.env.*.local
+*.tsbuildinfo
+
+# Android build artifacts (keep source)
+android/.gradle/
+android/app/build/
+android/build/
+android/.cxx/
+android/local.properties
+
+# Large assets that are already in android/app/src/main/assets
+android/app/src/main/assets/public/audio/*.mp3

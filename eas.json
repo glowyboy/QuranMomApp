@@ -1,0 +1,21 @@
+{
+  "cli": {
+    "version": ">= 0.52.0"
+  },
+  "build": {
+    "production": {
+      "android": {
+        "buildType": "apk",
+        "gradleCommand": ":app:assembleRelease",
+        "withoutCredentials": false,
+        "image": "latest",
+        "node": "22.11.0"
+      },
+      "env": {
+        "EXPO_NO_CAPABILITY_SYNC": "1",
+        "EXPO_NO_METRO_LAZY": "1"
+      },
+      "prebuildCommand": "npm run build && npx cap sync android"
+    }
+  }
+}
