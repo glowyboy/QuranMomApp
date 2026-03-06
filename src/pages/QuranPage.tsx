@@ -225,8 +225,8 @@ const QuranPage: React.FC = () => {
     // Add to beginning
     history.unshift(trimmedQuery);
     
-    // Keep only last 10 searches
-    history = history.slice(0, 10);
+    // Keep only last 50 searches
+    history = history.slice(0, 50);
     
     setSearchHistory(history);
     localStorage.setItem('quran-search-history', JSON.stringify(history));
@@ -312,8 +312,8 @@ const QuranPage: React.FC = () => {
           {/* History Dropdown with better scrolling */}
           {showHistory && searchHistory.length > 0 && (
             <div className="absolute top-full left-0 right-0 mt-2 bg-white border border-islamic-gold/30 rounded-lg shadow-lg z-10">
-              <div className="p-2 max-h-80 overflow-y-auto">
-                <p className="text-xs text-islamic-dark/60 px-3 py-2 text-right sticky top-0 bg-white">عمليات البحث السابقة:</p>
+              <div className="p-2 max-h-96 overflow-y-auto">
+                <p className="text-xs text-islamic-dark/60 px-3 py-2 text-right sticky top-0 bg-white">عمليات البحث السابقة ({searchHistory.length}):</p>
                 <div className="space-y-1">
                   {searchHistory.map((historyItem, index) => (
                     <button
