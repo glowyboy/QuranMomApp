@@ -40,6 +40,7 @@ const QuranPage: React.FC = () => {
   const [showHistory, setShowHistory] = useState(false);
   const [showFilter, setShowFilter] = useState(false);
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const searchTimeoutRef = useRef<NodeJS.Timeout | null>(null);
   const historyRef = useRef<HTMLDivElement>(null);
   const navigate = useNavigate();
   const surahs = useMemo(() => quran, []);
@@ -108,6 +109,15 @@ const QuranPage: React.FC = () => {
       document.removeEventListener('mousedown', handleClickOutside);
     };
   }, [showHistory]);
+
+  // Cleanup search timeout on unmount
+  useEffect(() => {
+    return () => {
+      if (searchTimeoutRef.current) {
+        clearTimeout(searchTimeoutRef.current);
+      }
+    };
+  }, []);
   const searchResults = useMemo(() => {
     const query = normalizeArabic(searchQuery.trim());
     if (!query) return [];
@@ -192,6 +202,15 @@ const QuranPage: React.FC = () => {
   const handleSearchChange = (value: string) => {
     setSearchQuery(value);
     localStorage.setItem('quran-search-query', value);
+    
+    // Add to search history when user types (with debounce effect)
+    if (value.trim() && value.length >= 2) {
+      // Use a timeout to avoid adding every keystroke
+      clearTimeout(searchTimeoutRef.current);
+      searchTimeoutRef.current = setTimeout(() => {
+        addToSearchHistory(value.trim());
+      }, 1000); // Add to history after 1 second of no typing
+    }
   };
 
   const addToSearchHistory = (query: string) => {
